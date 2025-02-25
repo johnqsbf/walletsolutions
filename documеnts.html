@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents | Wallet Solutions</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
+</head>
+<style>
+    .spacer {
+        height: 60px;
+    }
+
+    .documents {
+        background: #f0f0f0;
+        padding: 5px;
+        border-radius: 10px;
+
+        max-width: 900px;
+        margin: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Добавление тени */
+    }
+
+    .document-category {
+
+        padding: 0px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background: #f9f9f9;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .document-category h2 {
+        cursor: pointer;
+        margin: 0;
+        padding: 5px;
+        background: #e6e6e6;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .document-category h2::after {
+        content: '\2192';
+        /* Стрелка вправо */
+        font-size: 14px;
+        transition: transform 0.3s;
+    }
+
+    .document-category.active h2::after {
+        transform: rotate(90deg);
+    }
+
+    .document-content {
+        display: none;
+        padding: 10px;
+    }
+
+    .document-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .document-item h3 {
+        margin: 0;
+    }
+
+    .document-meta {
+        font-size: 14px;
+        color: #888;
+    }
+
+        /* Добавить в секцию стилей documents.html */
+    .document-content {
+        animation: fadeInUp 0.4s ease-out;
+    }
+
+    .document-item {
+        transition: var(--transition);
+    }
+
+    .document-item:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: translateX(10px);
+    }
+
+    .btn {
+        padding: 8px 15px;
+        background: #0FA958;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #087f46;
+    }
+
+
+   /* Заменить существующий стиль навигации */
+
+    .header .nav a {
+        position: relative;
+        padding-bottom: 5px;
+    }
+
+    .header .nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #0FA958;
+        transition: var(--transition);
+    }
+
+    .header .nav a:hover::after {
+        width: 100%;
+    }
+
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Wallet Solutions</a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="#">Mission</a>
+            <a href="#">Contact</a>
+           
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="text-align: left;">
+        <img src="img/image_docs.png" alt="Company Image">
+        <div class="hero-content" style="margin-left: 0; padding-left: 50px;">
+            <h1>Documents</h1>
+            <p style="margin-bottom: 30px;">Bussiness policies and regulations</p>
+            <p style="margin-bottom: 30px;">Licence and certificates</p> 
+            <p style="margin-bottom: 30px;">Key Information Documents (KDI's)</p>
+            <p style="margin-bottom: 30px;">FATCA & CRS</p>
+        </div>
+    </section>
+
+    <div class="spacer"></div>
+    
+    <!-- Documents Section -->
+    <section class="documents">
+        <h1>Documents</h1>
+        <p>Here you can find all the necessary legal and regulatory documents.</p>
+    
+        <div class="document-list">
+            <!-- Business Policies and Regulations -->
+            <div class="document-category" onclick="toggleCategory(this, 'business-policies')">
+                <h3>Business Policies and Regulations</h3>
+                <div id="business-policies" class="document-content">
+                    <div class="document-item">
+                        <h3>General Terms of Business</h3>
+                        <span class="document-meta">Effective from 31.10.2024 till 23.02.2025</span>
+                        <a href="docs/general_terms.pdf" class="btn" download>Download</a>
+                    </div>
+                    <div class="document-item">
+                        <h3>General Terms of Business</h3>
+                        <span class="document-meta">Effective from 24.02.2025</span>
+                        <a href="docs/general_terms_v2.pdf" class="btn" download>Download</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- License and Certificates -->
+            <div class="document-category" onclick="toggleCategory(this, 'license-certificates')">
+                <h3>License and Certificates</h3>
+                <div id="license-certificates" class="document-content">
+                    <div class="document-item">
+                        <h3>Company Registration Certificate</h3>
+                        <a href="docs/registration_certificate.pdf" class="btn" download>Download</a>
+                    </div>
+                    <div class="document-item">
+                        <h3>Regulatory Compliance License</h3>
+                        <a href="docs/compliance_license.pdf" class="btn" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Policies and Regulations -->
+            <div class="document-category" onclick="toggleCategory(this, 'business-policies')">
+                <h3>Privacy Policy</h3>
+                <div id="business-policies" class="document-content">
+                    <div class="document-item">
+                        <h3>Our privacy policy explains how we handle your data</h3>
+                        <span class="document-meta">Our privcacy</span>
+                        <a href="docs/general_terms.pdf" class="btn" download>Download</a>
+                    </div>
+                    <div class="document-item">
+                        <h3>General Terms of Business</h3>
+                        <span class="document-meta">Effective from 24.02.2025</span>
+                        <a href="docs/privacy_policy.pdf" class="btn" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Policies and Regulations -->
+            <div class="document-category" onclick="toggleCategory(this, 'business-policies')">
+                <h3>Terms and Conditions</h3>
+                <div id="business-policies" class="document-content">
+                    <div class="document-item">
+                        <h3>Terms and Conditions</h3>
+                        <span class="document-meta">terms</span>
+                        <a href="docs/terms_conditions.pdf" class="btn" download>Download</a>
+                    </div>
+                    <div class="document-item">
+                        <h3>Gconditions</h3>
+                        <span class="document-meta">Effective from 24.02.2025</span>
+                        <a href="docs/terms_conditions.pdf" class="btn" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Policies and Regulations -->
+            <div class="document-category" onclick="toggleCategory(this, 'business-policies')">
+                <h3>Risk Disclosure</h3>
+                <div id="business-policies" class="document-content">
+                    <div class="document-item">
+                        <h3>Risk Disclosure</h3>
+                        <span class="document-meta">terms</span>
+                        <a href="docs/risk_disclosure.pdf" class="btn" download>Download</a>
+                    </div>
+                    <div class="document-item">
+                        <h3>Risk Disclosure</h3>
+                        <span class="document-meta">Effective from 24.02.2025</span>
+                        <a href="docs/risk_disclosure.pdf" class="btn" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Policies and Regulations -->
+            <div class="document-category" onclick="toggleCategory(this, 'business-policies')">
+                <h3>Client Agreement</h3>
+                <div id="business-policies" class="document-content">
+                    <div class="document-item">
+                        <h3>Client Agreement 1</h3>
+                        <span class="document-meta">terms</span>
+                        <a href="docs/client_agreement.pdf" class="btn" download>Download</a>
+                    </div>
+                    <div class="document-item">
+                        <h3>Client Agreement 2</h3>
+                        <span class="document-meta">Effective from 24.02.2025</span>
+                        <a href="docs/client_agreement.pdf" class="btn" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <script>
+        function toggleCategory(element, id) {
+            var content = document.getElementById(id);
+            var parent = element;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                parent.classList.add("active");
+            } else {
+                content.style.display = "none";
+                parent.classList.remove("active");
+            }
+        }
+    </script>
+
+    <div class="spacer"></div> <!-- Уже существующий класс с высотой 60px -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+        <p>Wallet Solutions is VASP licensed and MiCA regulated company, working under licence #123456, Estonia.</p>
+        </div>
+        <p>Contact | FAQ</p>
+        
+        <div class="social-icons">
+            <a href="#"><img src="img/fb-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="img/gray-instagram-logo-light.png" alt="Instagram"></a>
+            <a href="#"><img src="img/telegram-16.png" alt="Telegram"></a>
+            <a href="#"><img src="img/hd-grey-linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Плавный скролл для якорей
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>    
+</body>
+
+</html>

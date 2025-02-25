@@ -1,0 +1,989 @@
+:root {
+    --transition: all 0.3s ease;
+}
+
+/* Анимация появления элементов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация для секций */
+.section {
+    opacity: 1; /* Вместо 0 */
+    transform: none; /* Убрать трансформацию */
+    animation: none; /* Отключить анимацию */
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Анимация для кнопок */
+.btn {
+    transition: var(--transition);
+    transform: scale(1);
+}
+
+
+/* Добавить в начало body */
+body {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+
+
+/* Анимация для заголовков h2 */
+/* Добавить в раздел анимаций */
+.section h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    /* Отступ для подчеркивания */
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #0FA958;
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.section h2:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}
+
+/* Анимация для параграфов p */
+.section p {
+    opacity: 1;
+    transform: translateX(50px);
+    transition: all 0.8s ease 0.2s;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+.section p:hover {
+    transform: scale(1.2);
+    /* Increases size by 150% */
+    z-index: 10;
+    /* Ensures the enlarged paragraph appears above other elements */
+}
+
+
+.section h2.animate,
+.section p.animate {
+    opacity: 1;
+    transform: translate(0);
+}
+
+
+/* Ключевые кадры для fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ключевые кадры для slideInFromRight */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(15, 169, 88, 0.3);
+}
+
+/* Анимация для карточек документов */
+.document-category {
+    transition: var(--transition);
+}
+
+.document-category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Анимация изображений */
+img {
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+/* === Общие стили === */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #222;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* === Верхнее меню === */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.header .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0FA958;
+    text-decoration: none;
+}
+
+.header .nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+.header .nav a {
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.header .nav a:hover {
+    color: #0FA958;
+}
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .header .nav {
+        gap: 10px;
+    }
+
+    .header .nav a {
+        font-size: 14px;
+    }
+}
+
+
+/* Гибкое меню, чтобы элементы не выходили за границы */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Контейнер навигации */
+.header .nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Чтобы элементы не вылазили */
+}
+
+/* Ограничение максимальной ширины и адаптивность */
+.header .nav a {
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    white-space: nowrap;
+    /* Чтобы текст не переносился */
+}
+
+.header .nav a:hover {
+    color: #0FA958;
+}
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .header .nav {
+        gap: 10px;
+    }
+
+    .header .nav a {
+        font-size: 14px;
+        /* Уменьшаем шрифт, если экран узкий */
+    }
+}
+/* === Главный блок (Hero Section) === */
+/* === Hero Section === */
+.hero {
+    position: relative;
+    width: 100%;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-content {
+    position: absolute;
+    left: 50px;
+    top: 20%;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.hero .btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #0FA958;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero .btn:hover {
+    background: #087f46;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+    .hero-content {
+        left: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        left: 20px;
+        top: 15%;
+        max-width: 80%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .hero .btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: auto;
+    }
+
+    .hero img {
+        min-height: 350px;
+        object-fit: cover;
+    }
+
+    .hero-content {
+        position: relative;
+        left: 0;
+        top: 0;
+        padding: 30px 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .hero .btn {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 200px;
+    }
+}
+
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .header .nav {
+        gap: 10px;
+    }
+
+    .header .nav a {
+        font-size: 14px;
+    }
+}
+
+/* === Секции с контентом === */
+.section {
+    text-align: center;
+        padding: 60px 20px;
+        /* Remove flex styling that conflicts with grid */
+        display: block;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s forwards;
+        animation-delay: 1s;
+}
+
+.section img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    text-align: center;
+        margin: 0 0 40px 0;
+        width: 100%;
+        grid-column: 1 / -1;
+        /* Make heading span full grid width */
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 14px;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.section .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #0FA958;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.section .btn:hover {
+    background: #087f46;
+}
+
+
+
+.wallet-info {
+    background: #f0f0f0;
+    /* Светло-жёлтый фон для привлечения внимания */
+    border: 0px solid #ff9800;
+    /* Оранжевая рамка */
+    padding: 20px;
+    font-weight: bold;
+    /* Жирный текст */
+    text-align: center;
+    /* Центрирование */
+    font-size: 16px;
+    border-radius: 8px;
+    /* Закруглённые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Лёгкая тень */
+    max-width: 600px;
+    /* Ограничение ширины */
+    margin: 20px auto;
+    /* Центрирование блока */
+    
+    
+/* === Анимация === */
+opacity: 0;
+/* Начальное состояние: невидимый */
+transform: translateY(30px);
+/* Смещение вниз */
+animation: fadeSlideIn 0.8s ease-out forwards;
+}
+
+/* Определение анимации */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* === Форма === */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    width: 30%;
+    display:block;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #0FA958;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #087f46;
+}
+
+/* === Футер === */
+.footer {
+    display: flex;
+    justify-content: space-between; /* Раскидываем текст и соц. иконки */
+    align-items: center;
+    text-align: left;
+    padding: 20px 40px;
+    background: #f5f5f5;
+    color: #222;
+    font-size: 14px; /* Мелкий шрифт */
+    flex-wrap: wrap; /* Чтобы элементы не ломались на узких экранах */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+.footer p {
+    margin-bottom: 15px;
+    color: rgb(6, 6, 6);
+    /* Наследует цвет от родителя */
+}
+
+
+/* Блок с лицензией */
+.footer-left {
+    max-width: 400px;
+    font-size: 12px; /* Еще меньше шрифт */
+    color: #030303; /* Серый цвет для мягкости */
+
+}    
+.social-icons {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 24px;
+    /* Размер иконок */
+    height: 24px;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+/* Эффекты при наведении */
+.social-icons a:hover img {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 480px) {
+    .social-icons img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Базовый grid */
+.grid-content {
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        /* Center items vertically */
+        justify-items: center;
+        /* Center items horizontally */
+        margin: 0 auto;
+        max-width: 1200px;
+}
+
+/* Убрать grid-column для h2 */
+.grid-content h2 {
+    text-align: left;
+    margin: 0 0 20px 0;
+    /* Уменьшить отступ */
+    grid-column: 1;
+    /* Занимает первую колонку */
+}
+
+/* Четные секции: текст слева, картинка справа */
+.grid-content.reversed {
+    grid-template-areas:
+        "h2 h2"
+        "p img";
+}
+
+.grid-content.reversed img {
+    grid-area: img;
+}
+
+.grid-content.reversed p {
+    grid-area: p;
+}
+
+/* Обратный порядок для четных секций */
+.grid-content.reverse {
+    direction: rtl;
+    /* Меняем направление сетки */
+}
+
+.grid-content.reverse>* {
+    direction: ltr;
+    /* Возвращаем нормальное направление контента */
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 768px) {
+    .grid-content {
+        grid-template-columns: 1fr !important;
+        grid-template-areas:
+            "h2"
+            "img"
+            "p" !important;
+    }
+}
+
+/* Расположение элементов */
+.grid-content img {
+    max-width: 100%;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+}
+    
+.grid-content p {
+    text-align: left;
+    padding: 20px;
+    justify-self: center;
+    align-self: center;
+    max-width: 100%;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+.grid-content p:hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+
+
+/* Сохранение оригинальных стилей */
+.section p {
+    text-align: left;
+    padding: 20px;
+}
+
+
+/* === секция с формой === */
+/* === Contact Form Centered === */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.contact-form h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: auto;
+    min-width: 120px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #0FA958;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #087f46;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form form {
+        max-width: 90%;
+    }
+}
+
+
+/* Добавить в конец styles.css */
+/* Исправление только для футера index.html */
+.footer-left p,
+.footer-center p {
+    font-size: 14px !important;    /* Уменьшаем размер шрифта */
+    transition: none !important;   /* Отключаем все анимации */
+    transform: none !important;    /* Сбрасываем трансформации */
+    pointer-events: none !important; /* Отключаем взаимодействие */
+}
+
+/* Отключаем ховер-эффекты */
+.footer-left p:hover,
+.footer-center p:hover {
+    transform: none !important;
+    cursor: default !important;
+}
+
+
+/* Make sure the footer sticks to the bottom */
+main {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* Добавьте в конец файла styles.css */
+.footer > p { 
+    transition: none !important; 
+    transform: none !important; 
+}
+
+.footer > p:hover { 
+    transform: none !important; 
+    cursor: default !important; 
+}
+
+
+/* Security Section Styles */
+.security-section {
+    background: #f5f5f5; /* Совпадает с цветом футера */
+    padding: 60px 20px;
+    margin: 40px 0;
+}
+
+.security-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.security-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0 0;
+}
+
+.security-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.security-list li::before {
+    content: "●";
+    color: #0FA958; /* Цвет логотипа */
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .security-section {
+        padding: 40px 15px;
+    }
+    
+    .security-list li {
+        font-size: 14px;
+        padding-left: 25px;
+    }
+}
+
+
+
+/* === Секция с unique section === */
+
+
+.unique-services {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center; /* Центрируем весь контент блока */
+}
+
+.unique-services .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.unique-services .service-card {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    display: flex; /* Добавляем flex для контроля внутреннего выравнивания */
+    flex-direction: column;
+    align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+.unique-services .service-card:hover {
+    transform: translateY(-5px);
+}
+
+.unique-services .service-number {
+    font-size: 1.5rem;
+    color: #0FA958;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.unique-services .service-title {
+    font-size: 1.25rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center; /* Явное выравнивание текста */
+    width: 100%; /* Занимает всю ширину карточки */
+}
+
+.unique-services .service-description {
+    color: #636e72;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-align: center; /* Выравнивание по центру */
+    max-width: 280px; /* Оптимальная ширина для чтения */
+    margin: 0 auto; /* Центрирование блока текста */
+}
+
+.unique-services .service-description {
+    transition: none !important; /* Отключаем все переходы */
+    transform: none !important; /* Сбрасываем трансформации */
+}
+
+.unique-services .service-card:hover .service-description {
+    transform: none !important; /* Отключаем эффекты при наведении */
+    cursor: default; /* Убираем курсор-указатель */
+}
+
+/* Если в общих стилях есть глобальные правила для <p> */
+.unique-services p {
+    transform: none !important;
+    transition: none !important;
+}
+
+.partners-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+    overflow: hidden;
+    position: relative;
+}
+
+.partners-container {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.partners-container:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.partner-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    padding: 0 40px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.partner-item:hover {
+    filter: grayscale(0);
+}
+
+.partner-item img {
+    max-width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Дублируем элементы для бесшовной анимации */
+.partners-container:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            #f8f9fa 0%,
+            rgba(248, 249, 250, 0) 10%,
+            rgba(248, 249, 250, 0) 90%,
+            #f8f9fa 100%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .partner-item {
+        min-width: 150px;
+        padding: 0 20px;
+    }
+
+    .partner-item img {
+        max-width: 120px;
+    }
+}
