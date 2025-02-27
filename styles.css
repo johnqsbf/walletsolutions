@@ -626,12 +626,16 @@ animation: fadeSlideIn 0.8s ease-out forwards;
     display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 50px;
-        align-items: center;
+        
         /* Center items vertically */
-        justify-items: center;
-        /* Center items horizontally */
+        
         margin: 0 auto;
         max-width: 1200px;
+        
+                
+        justify-items: start !important;
+        align-items: start !important;
+            
 }
 
 /* Убрать grid-column для h2 */
@@ -1012,14 +1016,30 @@ main {
 }
 
 
-#mission .text-content p {
-    text-align: left;
+#mission .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Выравниваем все параграфы по левому краю */
+    width: 100%;
+    text-align: left !important;
+        
+}
+
+#mission .paragraph-container p {
+    text-align: inherit;
+    max-width: 100%;
     margin-left: 0;
     padding-left: 0;
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 20px;
-    /* Отступ между параграфами */
+}
+
+#mission .text-content p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+#mission .text-content p:hover {
+    transform: scale(1.1);
 }
 
 /* Для последнего параграфа убираем нижний отступ */
