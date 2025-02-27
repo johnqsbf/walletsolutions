@@ -1539,3 +1539,82 @@ main {
 }
 
 
+/* Wallet Solutions Service Blocks - Namespaced with 'ws-' prefix to avoid conflicts */
+.ws-services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ws-service-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    flex: 1 1 45%;
+    min-width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ws-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ws-icon-container {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f4fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.ws-icon {
+    width: 40px;
+    height: 40px;
+    color: #008751;
+}
+
+.ws-service-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+.ws-service-description {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.ws-learn-more {
+    display: flex;
+    align-items: center;
+    color: #008751;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.ws-learn-more svg {
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+}
+
+.ws-learn-more:hover svg {
+    transform: translateX(3px);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .ws-service-card {
+        flex: 1 1 100%;
+    }
+}
