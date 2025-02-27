@@ -1401,3 +1401,68 @@ main {
     /* Adjust size as needed */
     object-fit: contain;
 }
+
+
+#mission .text-content {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+#mission .text-content p {
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
+    margin-bottom: 20px;
+    /* Keep the spacing between paragraphs */
+    width: 100%;
+    /* Ensure all paragraphs take up the same width */
+}
+
+/* For the last paragraph, remove the bottom margin */
+#mission .text-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* === Секция Regulatory Framework === */
+/* Сохраняем оригинальный десктопный вид, не меняем его */
+/* Добавляем только медиа-запрос для мобильных устройств */
+
+@media screen and (max-width: 768px) {
+    .regulatory-framework-section .grid-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .regulatory-framework-section .grid-content img {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto 20px;
+        order: -1;
+        /* Размещает изображение над содержимым на мобильных устройствах */
+    }
+
+    .regulatory-framework-section .security-content {
+        width: 100%;
+    }
+}
+
+/* === Секция Security Infrastructure === */
+@media screen and (max-width: 768px) {
+    .security-infrastructure-section .grid-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .security-infrastructure-section .grid-content img {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto 20px;
+        order: -1;
+        /* Размещает изображение над содержимым на мобильных устройствах */
+    }
+
+    .security-infrastructure-section .security-content {
+        width: 100%;
+    }
+}
