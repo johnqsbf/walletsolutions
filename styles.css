@@ -40,7 +40,14 @@ body {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
-
+.container {
+    max-width: 1440px;
+    /* Оптимальная ширина для больших экранов */
+    width: 100%;
+    /* Адаптивность */
+    margin: 0 auto;
+    /* Центрирование */
+}
 
 /* Анимация для заголовков h2 */
 /* Добавить в раздел анимаций */
@@ -150,7 +157,18 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    width: 100vw;
+        /* Занимает всю ширину экрана */
+        overflow-x: hidden;
+        /* Убирает горизонтальный скролл */
 }
+
+
+.container {
+    min-width: 320px;
+    /* Минимальная ширина для мобильных устройств */
+}
+
 
 /* === Верхнее меню === */
 .header {
@@ -999,10 +1017,20 @@ main {
     margin-left: 0;
     padding-left: 0;
     max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    /* Отступ между параграфами */
 }
 
+/* Для последнего параграфа убираем нижний отступ */
+#mission .text-content p:last-child {
+    margin-bottom: 0;
+}
 
-
+#mission .text-content p {
+    text-align: left !important;
+    /* остальные стили */
+}
 
 /* === Секция Sign up form === */
 .signup-container {
@@ -1302,6 +1330,12 @@ main {
     }
 }
 
+    .container {
+        width: 100%;
+        padding: 0 10px;
+        /* Небольшие отступы */
+    }  
+
 /* Для очень маленьких экранов */
 @media (max-width: 320px) {
     .form-container h2 {
@@ -1320,6 +1354,12 @@ main {
         font-size: 12px;
     }
 }
+
+.container {
+    min-width: 320px;
+    /* Минимальная ширина для мобильных устройств */
+}
+
 
 @media (max-width: 480px) {
     .image-container img {
@@ -1408,20 +1448,6 @@ main {
     margin-left: 0;
 }
 
-#mission .text-content p {
-    padding-left: 0;
-    margin-left: 0;
-    text-align: left;
-    margin-bottom: 20px;
-    /* Keep the spacing between paragraphs */
-    width: 100%;
-    /* Ensure all paragraphs take up the same width */
-}
-
-/* For the last paragraph, remove the bottom margin */
-#mission .text-content p:last-child {
-    margin-bottom: 0;
-}
 
 
 /* === Секция Regulatory Framework === */
@@ -1466,3 +1492,50 @@ main {
         width: 100%;
     }
 }
+
+/* === Секция Documents === */
+.documents-section {
+    background-color: #008751;
+    color: white;
+    padding: 40px 100px;
+    width: 100%;
+    position: relative;
+}
+
+.documents-container {
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.documents-section h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.documents-section .document-link {
+    font-size: 22px;
+    margin-bottom: 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.documents-section .document-link:hover {
+    text-decoration: underline;
+}
+
+.document-image {
+    display: block;
+    width: 300px;
+    /* Настройте под ваш размер */
+    margin: 0 auto -20px;
+    /* Отрицательный margin снизу для наложения */
+    z-index: 2;
+    position: relative;
+}
+
+
